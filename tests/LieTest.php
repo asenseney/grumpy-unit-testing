@@ -29,12 +29,19 @@ class LieTest extends PHPUnit_Framework_TestCase
             ->method('prepare')
             ->will($this->returnValue($statement));
 
+        $post_response = $this->getMockBuilder('StdClass')
+            ->setMethods(['getBody'])
+            ->getMock();
+        $post_response->expects($this->once())
+            ->method('getBody')
+            ->will($this->returnValue('true'));
+
         $client = $this->getMockBuilder('GuzzleHttp\Client')
             ->setMethods(['post'])
             ->getMock();
         $client->expects($this->once())
             ->method('post')
-            ->will($this->returnValue('true'));
+            ->will($this->returnValue($post_response));
 
         $lie = new LieModel();
         $lie->setDb($db);
