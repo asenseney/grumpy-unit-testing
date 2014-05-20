@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class LieTest extends PHPUnit_Framework_TestCase
 {
@@ -67,8 +67,8 @@ class LieTest extends PHPUnit_Framework_TestCase
         /**
          * Create a data source
          * Create a fake response from data source
-         * Stub out the methods to return the data 
-         * Create a LieModel object 
+         * Stub out the methods to return the data
+         * Create a LieModel object
          * Run the view() method passing in an ID
          * Verify it returns the expected data
          */
@@ -83,7 +83,7 @@ class LieTest extends PHPUnit_Framework_TestCase
         $data = [
             'id' => $id,
             'contents' => 'This is not a spammy comment',
-            'entry_date' => time(),   
+            'entry_date' => time(),
         ];
         $statement->expects($this->once())
             ->method('fetch')
@@ -120,7 +120,7 @@ class FakePDO extends PDO
 
     public function setMethods(array $methods = array())
     {
-        
+
     }
 
 
