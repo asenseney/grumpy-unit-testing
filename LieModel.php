@@ -19,6 +19,22 @@ class LieModel
 
     public function add(array $data = array())
     {
+        $response = $this->client->post('http://84d29d0c8efe.rest.akismet.com/1.1/comment-check', [
+            'body' => [
+                'blog' => 'http://littlehart.net',
+                'user_ip' => '127.0.0.1',
+                'user_agent' => 'lynx',
+                'comment_type' => 'forum-post',
+                'comment_author' => 'viagara-test',
+                'comment_content' => $data['contents'],
+            ]    
+        ]);
+        $body = trim($response->getBody());
+
+        if ($body = trim($response->getBody()) !== 'true') {
+            return false;
+        }
+
         $sql = 'INSERT INTO lies (id, contents, entry_date) VALUES (?, ?, ?)';
         $statement = $this->db->prepare(
             $data['id'],

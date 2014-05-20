@@ -50,9 +50,9 @@ class LieTest extends PHPUnit_Framework_TestCase
         // doesn't like to use autoincrements... uses UUIDs or a uniqid
         $data = [
             'id' => uniqid(),
-                'contents' => 'This is not a spammy comment',
-                'entry_date' => time(),
-                ];
+            'contents' => 'This is not a spammy comment',
+            'entry_date' => time(),
+        ];
 
         $response = $lie->add($data);
 
