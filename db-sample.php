@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $db = new \PDO('mysql:host=localhost;dbname=liesitoldmykids', 'root', '');
 $sql = 'SELECT * FROM lies ORDER BY entry_date DESC';
