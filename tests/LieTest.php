@@ -41,7 +41,10 @@ class LieTest extends PHPUnit_Framework_TestCase
 
         $response = $lie->add($data);
 
-        $this->assertTrue($response);
+        $this->assertTrue(
+            $response,
+            'Did not add lie to system as expected'
+        );
     }
 }
 
