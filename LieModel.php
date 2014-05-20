@@ -29,7 +29,6 @@ class LieModel
                 'comment_content' => $data['contents'],
             ]    
         ]);
-        $body = trim($response->getBody());
 
         if ($body = trim($response->getBody()) !== 'true') {
             return false;
