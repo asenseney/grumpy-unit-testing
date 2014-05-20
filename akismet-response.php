@@ -19,6 +19,11 @@ $body = trim($response->getBody());
 
 switch ($body) {
     case 'true':
-        
+        echo 'spammy!';
         break;
+    case 'false':
+        echo 'not spammy!';
+        break;
+    default:
+        echo 'Uhh...I don\'t know';
 }
