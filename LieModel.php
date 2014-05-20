@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Model that represents the lie in our appliation
 //
@@ -27,7 +27,7 @@ class LieModel
                 'comment_type' => 'forum-post',
                 'comment_author' => 'viagara-test',
                 'comment_content' => $data['contents'],
-            ]    
+            ]
         ]);
 
         if ($body = trim($response->getBody()) !== 'true') {
