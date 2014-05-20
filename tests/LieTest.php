@@ -36,7 +36,7 @@ class LieTest extends PHPUnit_Framework_TestCase
         $data = [
             'id' => uniqid(),
                 'contents' => 'This is not a spammy comment',
-                'entry_date' => new \DateTime(),
+                'entry_date' => time(),
                 ];
 
         $response = $lie->add($data);
