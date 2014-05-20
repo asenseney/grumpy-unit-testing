@@ -23,4 +23,17 @@ class LieModel
 
         return ($statement->rowCount() === 1);
     }
+
+    public function view($id)
+    {
+        if (! $id) {
+            throw new InvalidArgumentException('Invalid lie id');
+        }
+
+        $sql = 'SELECT * FROM lies WHERE id = ?';
+        $statement = $this->db->prepare($id);
+        $statement->execute();
+
+        return $statement->fetch();
+    }
 }
