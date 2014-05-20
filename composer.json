@@ -1,0 +1,13 @@
+{
+    "name": "root/grumpy-test",
+    "require": {
+        "phpunit/phpunit": "4.1.*",
+        "guzzlehttp/guzzle": "4.*"
+    },
+    "authors": [
+        {
+            "name": "David Mosher",
+            "email": "dmosher@noip.com"
+        }
+    ]
+}
