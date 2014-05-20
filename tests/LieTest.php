@@ -29,8 +29,16 @@ class LieTest extends PHPUnit_Framework_TestCase
             ->method('prepare')
             ->will($this->returnValue($statement));
 
+        $client = $this->getMockBuilder('GuzzleHttp\Client')
+            ->setMethods(['post'])
+            ->getMock();
+        $client->expects($this->once())
+            ->method('post')
+            ->will($this->returnValue('true'));
+
         $lie = new LieModel();
         $lie->setDb($db);
+        $lie->setHttpClient($client);
 
         // doesn't like to use autoincrements... uses UUIDs or a uniqid
         $data = [

@@ -4,11 +4,17 @@
 //
 class LieModel
 {
+    public $client;
     public $db;
 
     public function setDb($db)
     {
         $this->db = $db;
+    }
+
+    public function setHttpClient($client)
+    {
+        $this->client = $client;
     }
 
     public function add(array $data = array())
