@@ -31,7 +31,7 @@ class LieModel
         }
 
         $sql = 'SELECT * FROM lies WHERE id = ?';
-        $statement = $this->db->prepare($id);
+        $statement = $this->db->prepare($sql, $id);
         $statement->execute();
 
         return $statement->fetch();
