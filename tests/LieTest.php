@@ -10,13 +10,13 @@ class LieTest extends PHPUnit_Framework_TestCase
          * pass contents into the add method
          * assert that it added things
          */
-        $result = $this->getMockBuilder('StdClass')
+        $statement = $this->getMockBuilder('StdClass')
             ->setMethods(['execute', 'rowCount'])
             ->getMock();
-        $result->expects($this->once())
+        $statement->expects($this->once())
             ->method('execute')
             ->will($this->returnValue(true));
-        $result->expects($this->once())
+        $statement->expects($this->once())
             ->method('rowCount')
             ->will($this->returnValue(1));
 
@@ -27,7 +27,7 @@ class LieTest extends PHPUnit_Framework_TestCase
 
         $db->expects($this->once())
             ->method('prepare')
-            ->will($this->returnValue($result));
+            ->will($this->returnValue($statement));
 
         $lie = new LieModel();
         $lie->setDb($db);

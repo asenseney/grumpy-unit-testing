@@ -14,13 +14,13 @@ class LieModel
     public function add(array $data = array())
     {
         $sql = 'INSERT INTO lies (id, contents, entry_date) VALUES (?, ?, ?)';
-        $result = $this->db->prepare(
+        $statement = $this->db->prepare(
             $data['id'],
             $data['contents'],
             $data['entry_date']
         );
-        $result->execute();
+        $statement->execute();
 
-        return ($result->rowCount() === 1);
+        return ($statement->rowCount() === 1);
     }
 }
